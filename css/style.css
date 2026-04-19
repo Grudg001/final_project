@@ -1,0 +1,181 @@
+/*
+    Name: Glenn George Rudge Jr.
+    Date: April 18, 2026
+    Description: Stylesheet for Wizards of Grindelwald. 
+                 Implements RWD using Flexbox and a consistent dark theme.
+*/
+
+/* --- Global Reset & Backgrounds --- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* Requirement: Background color/image */
+    background-color: #121212; 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../images/parchment-texture.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    color: #dcdcdc;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* --- Typography --- */
+h1, h2, h3 {
+    color: #d4af37; /* Wizarding Gold */
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+a {
+    color: #d4af37;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #fff;
+    text-shadow: 0 0 8px #d4af37;
+}
+
+/* --- Header & Navigation (RWD) --- */
+header {
+    background-color: #000;
+    padding: 2rem 0;
+    border-bottom: 3px double #d4af37;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Mobile first stack */
+    align-items: center;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+/* --- Main Content Layout --- */
+main {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6); /* Translucent box for readability */
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* --- Responsive Images --- */
+img {
+    max-width: 100%; /* Requirement: RWD images */
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border: 2px solid #d4af37;
+}
+
+/* --- Tables (Requirement) --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #1a1a1a;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #d4af37;
+    text-align: left;
+}
+
+th {
+    background-color: #d4af37;
+    color: #000;
+}
+
+/* --- Forms (Requirement) --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+input, textarea, btn {
+    padding: 10px;
+    background: #222;
+    border: 1px solid #d4af37;
+    color: white;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 0.9rem;
+    border-top: 1px solid #444;
+}
+
+/* --- Media & Gallery Styles --- */
+
+/* Center the video and ensure it is responsive */
+video {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin: 20px auto;
+    border: 3px solid #d4af37;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+/* Gallery Grid (RWD) */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile: 1 column */
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover; /* Keeps images uniform in size */
+    border: 1px solid #444;
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    border-color: #d4af37;
+}
+/* --- Media Queries (RWD Requirement) --- */
+@media (min-width: 768px) {
+    nav ul {
+        flex-direction: row; /* Horizontal for desktop */
+        justify-content: center;
+        gap: 30px;
+    }
+
+    main {
+        padding: 40px;
+    }
+}
+
+/* Tablet/Desktop: 3 columns */
+@media screen and (min-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
